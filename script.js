@@ -9,25 +9,27 @@ let cesped = '#450'
 let aigu = 'rgb(52, 79, 202)'
 let terra = 'rgb(150, 78, 56)'
 let pedra = 'rgb(105, 108, 110)'
+let clau = 'rgb(236, 204, 22)'
+let porta ='rgb(171, 17, 218)'
 
 let escenari = [
 
-    [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-    [1, 1, 1, 1, 3, 3, 0, 1, 1, 1, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-    [1, 1, 1, 1, 3, 0, 0, 1, 1, 1, 2, 2, 2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 4, 1, 0],
+    [1, 1, 1, 1, 0, 2, 2, 2, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+    [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+    [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 2, 2, 2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]
 
 ]
 
@@ -47,8 +49,14 @@ function dibuixaEscenari() {
             if (escenari[y][x] == 3) {
                 color = terra
             }
-ctx.fillStyle = color;
-ctx.fillRect(x*ampleC,y*altC,ampleC,altC)
+            if (escenari[y][x] == 4) {
+                color = clau
+            }
+            if (escenari[y][x] == 5) {
+                color = porta
+            }
+            ctx.fillStyle = color;
+            ctx.fillRect(x * ampleC, y * altC, ampleC, altC)
 
         }
     }
@@ -76,29 +84,66 @@ function borrarPantalla() {
     canvas.height = 800
 }
 
-let prota = function (x, y, vel) {
+let prota = function (x, y) {
     this.x = x;
     this.y = y;
-    this.vel = vel
+    this.clau = false;
 
     this.dibuixa = function () {
         ctx.drawImage(imatge, this.x, this.y, 50, 50)
     }
 
-    this.adalt = function () {
-        this.y = this.y - this.vel
+    this.margenes = function (x, y) {
+        let colisio = false 
+        if (escenari[y/50][x/50] == 0 || escenari[y/50][x/50] == 2) {
+            colisio = true;
+            return colisio;
+        }
+        return colisio;
+    }
+
+    this.logica = function(){
+        if(escenari[this.y/50][this.x/50]==4){
+            this.clau = true;
+            alert("TIENES LA LLAVE")
+            escenari[this.y/50][this.x/50]=1
+        }
+         if(escenari[this.y/50][this.x/50]==5){
+            if(this.clau){
+                alert("ENHORABUENA HAS ESCAPADO")
+            }else{
+                alert("BUSCA LA LLAVE PORFI")
+            }
+        }
 
     }
+
+    this.adalt = function () {
+        if (!this.margenes(this.x, this.y - 50)) {
+            this.y = this.y - 50;
+            this.logica();
+        }
+       
+    }
     this.baix = function () {
-        this.y = this.y + this.vel
+        if (!this.margenes(this.x, this.y + 50)) {
+            this.y = this.y + 50;
+            this.logica();
+        }
 
     }
     this.dreta = function () {
-        this.x = this.x + this.vel
+        if (!this.margenes(this.x+50, this.y)) {
+            this.x = this.x + 50;
+            this.logica();
+        }
 
     }
     this.esquerra = function () {
-        this.x = this.x - this.vel
+        if (!this.margenes(this.x-50, this.y)) {
+            this.x = this.x - 50;
+            this.logica();
+        }
 
     }
 
@@ -108,80 +153,15 @@ let prota = function (x, y, vel) {
         ctx.fillText("X: " + this.x + " Y: " + this.y, 50, 50)
     }
 }
-let prota2 = function (x, y, vel) {
-    this.x = x;
-    this.y = y;
-    this.vel = vel
 
-    this.dibuixa = function () {
-        ctx.drawImage(imagen, this.x, this.y, 50, 50)
-    }
 
-    this.adalt = function () {
-        this.y = this.y - this.vel
-
-    }
-    this.baix = function () {
-        this.y = this.y + this.vel
-
-    }
-    this.dreta = function () {
-        this.x = this.x + this.vel
-
-    }
-    this.esquerra = function () {
-        this.x = this.x - this.vel
-
-    }
-}
-
-let personatge = function (x, y, vel) {
-    this.x = x;
-    this.y = y;
-    this.vel = vel
-    this.derecha = true;
-
-    this.dibuixa = function () {
-        ctx.fillRect(this.x, this.y, 50, 50)
-    }
-
-    this.mou = function () {
-        if (this.derecha == true) {
-            if (this.x < 1800) {
-                this.x = this.x + this.vel
-            } else {
-                this.derecha = false;
-            }
-        } else {
-            if (this.x > 100) {
-                this.x = this.x - this.vel
-            } else {
-                this.derecha = true;
-            }
-        }
-    }
-}
-
-let mar = new personatge(10, 100, 1);
-let lola = new personatge(10, 300, 5);
-let julen = new personatge(10, 500, 10);
-let xavi = new prota(200, 200, 5);
-let jorge = new prota2(200, 200, 10);
+let xavi = new prota(50, 150, 5);
 
 function principal() {
     borrarPantalla();
     dibuixaEscenari();
     xavi.dibuixa();
-    jorge.dibuixa();
-   /* mar.dibuixa();
-    lola.dibuixa();
-    julen.dibuixa();
-    mar.mou();
-    lola.mou();
-    julen.mou();
-    xavi.dibuixa();
-    jorge.dibuixa();
-    xavi.text();*/
+
 }
 
 document.addEventListener('keydown', function (tecla) {
@@ -198,16 +178,5 @@ document.addEventListener('keydown', function (tecla) {
     if (tecla.key == 'ArrowLeft') {
         xavi.esquerra()
     }
-    if (tecla.key == 'w') {
-        jorge.adalt()
-    }
-    if (tecla.key == 's') {
-        jorge.baix()
-    }
-    if (tecla.key == 'd') {
-        jorge.dreta()
-    }
-    if (tecla.key == 'a') {
-        jorge.esquerra()
-    }
+
 })

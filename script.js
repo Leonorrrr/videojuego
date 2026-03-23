@@ -7,59 +7,35 @@ let altC = 50;
 
 let retras = 0;
 
-let cesped = '#450'
-let aigu = 'rgb(52, 79, 202)'
-let terra = 'rgb(150, 78, 56)'
-let pedra = 'rgb(105, 108, 110)'
-let clau = 'rgb(236, 204, 22)'
-let porta = 'rgb(171, 17, 218)'
+let tilemap;
 
 let escenari = [
 
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 2, 1, 1, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0],
-    [0, 2, 1, 1, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 4, 1, 0],
-    [0, 1, 1, 1, 0, 2, 2, 2, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
-    [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
-    [0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 2, 2, 2, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 5, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+    [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 3, 2, 0],
+    [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0],
+    [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0],
+    [0, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 0, 2, 2, 2, 2, 0],
+    [0, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 2, 2, 0],
+    [0, 2, 0, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 2, 2, 0, 0, 0, 2, 2, 0],
+    [0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0],
+    [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+    [0, 2, 0, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+    [0, 2, 0, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+    [0, 2, 0, 0, 2, 0, 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0],
+    [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 ]
 
 function dibuixaEscenari() {
-    let color;
     for (let y = 0; y < 16; y++) {
         for (let x = 0; x < 36; x++) {
-            if (escenari[y][x] == 0) {
-                color = pedra
-            }
-            if (escenari[y][x] == 1) {
-                color = cesped
-            }
-            if (escenari[y][x] == 2) {
-                color = aigu
-            }
-            if (escenari[y][x] == 3) {
-                color = terra
-            }
-            if (escenari[y][x] == 4) {
-                color = clau
-            }
-            if (escenari[y][x] == 5) {
-                color = porta
-            }
-            ctx.fillStyle = color;
-            ctx.fillRect(x * ampleC, y * altC, ampleC, altC)
 
+            let tile = escenari[y][x]
+            ctx.drawImage(tilemap, tile * 32, 0, 32, 32, x * ampleC, y * altC, ampleC, altC)
         }
     }
 }
@@ -74,6 +50,8 @@ function inicializar() {
     imatge.src = './img/minnie.png'
     imagen = new Image();
     imagen.src = './img/mickey.png'
+    tilemap = new Image();
+    tilemap.src = './img/videojocunicornio.png'
 
     setInterval(function () {
         principal();
@@ -86,12 +64,13 @@ function borrarPantalla() {
     canvas.height = 800
 }
 
-let villano = function (x, y) {
+let villano = function (x, y, p) {
     this.x = x;
     this.y = y;
+    this.p = p;
 
     this.dibuixa = function () {
-        ctx.drawImage(imagen, this.x, this.y, 50, 50)
+        ctx.drawImage(tilemap, this.p, 32, 32, 32, this.x, this.y, 50, 50)
     }
 
     this.moviment = function () {
@@ -102,41 +81,57 @@ let villano = function (x, y) {
             let posicion = Math.floor(Math.random() * 4)
 
             if (posicion == 0) {
+               
                 if (!this.margenes(this.x, this.y - 50)) {
-            this.y = this.y - 50;
-        }
+
+                    this.y = this.y - 50;
+                }
             }
             if (posicion == 1) {
                 if (!this.margenes(this.x, this.y + 50)) {
-            this.y = this.y + 50;
-        }
+                    this.y = this.y + 50;
+                }
             }
             if (posicion == 2) {
-               if (!this.margenes(this.x - 50, this.y)) {
-            this.x = this.x - 50;
-       
-        }
+                if (!this.margenes(this.x - 50, this.y)) {
+                    this.x = this.x - 50;
+
+                }
             }
             if (posicion == 3) {
-            if (!this.margenes(this.x - 50, this.y)) {
-            this.x = this.x - 50;
-        }
+                if (!this.margenes(this.x - 50, this.y)) {
+                    this.x = this.x - 50;
+                }
 
             }
 
             retras = 0;
         }
+    }
 
         this.margenes = function (x, y) {
+            
             let colisio = false
-            if (escenari[y / 50][x / 50] == 0 || escenari[y / 50][x / 50] == 2) {
+            if (escenari[y / 50][x / 50] == 0) {
+  
                 colisio = true;
                 return colisio;
             }
             return colisio;
         }
 
-    }
+        this.matar = function(){
+            let.impacto = false
+            if(posicion==this.prota){
+                impacto = true;
+                alert("MUERTO")
+                return impacto;
+            }
+            return impacto;
+
+        }
+
+    
 }
 
 let prota = function (x, y) {
@@ -145,12 +140,12 @@ let prota = function (x, y) {
     this.clau = false;
 
     this.dibuixa = function () {
-        ctx.drawImage(imatge, this.x, this.y, 50, 50)
+        ctx.drawImage(tilemap, 0, 32, 32, 32, this.x, this.y, 50, 50)
     }
 
     this.margenes = function (x, y) {
         let colisio = false
-        if (escenari[y / 50][x / 50] == 0 || escenari[y / 50][x / 50] == 2) {
+        if (escenari[y / 50][x / 50] == 0) {
             colisio = true;
             return colisio;
         }
@@ -158,12 +153,12 @@ let prota = function (x, y) {
     }
 
     this.logica = function () {
-        if (escenari[this.y / 50][this.x / 50] == 4) {
+        if (escenari[this.y / 50][this.x / 50] == 3) {
             this.clau = true;
             alert("TIENES LA LLAVE")
-            escenari[this.y / 50][this.x / 50] = 1
+            escenari[this.y / 50][this.x / 50] = 2
         }
-        if (escenari[this.y / 50][this.x / 50] == 5) {
+        if (escenari[this.y / 50][this.x / 50] == 1) {
             if (this.clau) {
                 alert("ENHORABUENA HAS ESCAPADO")
             } else {
@@ -211,7 +206,9 @@ let prota = function (x, y) {
 
 
 let xavi = new prota(50, 150, 5);
-let enemic = new villano(500, 200);
+let enemic = new villano(500, 200, 32);
+let enemic2 = new villano(1000, 400, 64);
+let enemic3 = new villano(1500, 600, 96);
 
 function principal() {
     borrarPantalla();
@@ -219,6 +216,10 @@ function principal() {
     xavi.dibuixa();
     enemic.dibuixa();
     enemic.moviment();
+    enemic2.dibuixa();
+    enemic2.moviment();
+    enemic3.dibuixa();
+    enemic3.moviment();
 
 }
 

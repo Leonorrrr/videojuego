@@ -75,7 +75,15 @@ let villano = function (x, y, p) {
 
     this.moviment = function () {
 
-        retras++
+        let matar = xavi.matar(this.x, this.y)
+        if(matar){
+             alert("xavi ha muerto")
+            xavi.x = 800
+            xavi.y = 600
+            this.clau = false;
+
+        }
+            retras++
 
         if (retras == 10) {
             let posicion = Math.floor(Math.random() * 4)
@@ -120,16 +128,6 @@ let villano = function (x, y, p) {
             return colisio;
         }
 
-        this.matar = function(){
-            let.impacto = false
-            if(posicion==this.prota){
-                impacto = true;
-                alert("MUERTO")
-                return impacto;
-            }
-            return impacto;
-
-        }
 
     
 }
@@ -138,6 +136,14 @@ let prota = function (x, y) {
     this.x = x;
     this.y = y;
     this.clau = false;
+
+    this.matar = function(x,y){
+        let xavitieso = false;
+        if(this.x == x && this.y == y){
+            xavitieso = true;
+        }
+        return xavitieso
+    }
 
     this.dibuixa = function () {
         ctx.drawImage(tilemap, 0, 32, 32, 32, this.x, this.y, 50, 50)
@@ -167,6 +173,7 @@ let prota = function (x, y) {
         }
 
     }
+
 
     this.adalt = function () {
         if (!this.margenes(this.x, this.y - 50)) {

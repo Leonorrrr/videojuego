@@ -8,6 +8,8 @@ let altC = 50;
 let retras = 0;
 
 let tilemap;
+let posllave = { x: 33, y: 2 };
+let vidas = 5;
 
 let escenari = [
 
@@ -20,6 +22,27 @@ let escenari = [
     [0, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 2, 2, 0],
     [0, 2, 0, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 2, 2, 0, 0, 0, 2, 2, 0],
     [0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0],
+    [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+    [0, 2, 0, 2, 2, 2, 0, 2, 2, 0, 0, 0, 2, 2, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+    [0, 2, 0, 2, 2, 2, 0, 2, 2, 0, 2, 2, 2, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+    [0, 2, 0, 0, 2, 0, 0, 2, 2, 0, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0],
+    [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0],
+    [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+]
+
+let escenari2 = [
+
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
+    [0, 2, 2, 2, 2, 2, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 0],
+    [0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0],
+    [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0],
+    [0, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 0, 2, 2, 2, 2, 0],
+    [0, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 2, 2, 0],
+    [0, 2, 0, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 2, 2, 0, 0, 0, 2, 2, 0],
+    [0, 3, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0],
     [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
     [0, 2, 0, 2, 2, 2, 0, 2, 2, 0, 0, 0, 2, 2, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
     [0, 2, 0, 2, 2, 2, 0, 2, 2, 0, 2, 2, 2, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0],
@@ -50,6 +73,8 @@ function inicializar() {
     imatge.src = './img/minnie.png'
     imagen = new Image();
     imagen.src = './img/mickey.png'
+    corazon = new Image();
+    corazon.src = './img/corazon.png'
     tilemap = new Image();
     tilemap.src = './img/videojocunicornio.png'
 
@@ -76,20 +101,26 @@ let villano = function (x, y, p) {
     this.moviment = function () {
 
         let matar = xavi.matar(this.x, this.y)
-        if(matar){
-             alert("xavi ha muerto")
-            xavi.x = 800
-            xavi.y = 600
-            this.clau = false;
-
+        if (matar){
+            vidas--
         }
-            retras++
+        if (matar && vidas == 0) {
+            alert("XAVI HA SIDO ATRAPADO")
+            location.reload();
+        } else if (matar && vidas > 0) {
+            vidas--
+            xavi.x = 750
+            xavi.y = 400
+            xavi.clau = false
+            alert("¡TE QUEDAN " + vidas + " VIDAS!")
+        }
+        retras++
 
         if (retras == 10) {
             let posicion = Math.floor(Math.random() * 4)
 
             if (posicion == 0) {
-               
+
                 if (!this.margenes(this.x, this.y - 50)) {
 
                     this.y = this.y - 50;
@@ -107,8 +138,8 @@ let villano = function (x, y, p) {
                 }
             }
             if (posicion == 3) {
-                if (!this.margenes(this.x - 50, this.y)) {
-                    this.x = this.x - 50;
+                if (!this.margenes(this.x + 50, this.y)) {
+                    this.x = this.x + 50;
                 }
 
             }
@@ -117,19 +148,19 @@ let villano = function (x, y, p) {
         }
     }
 
-        this.margenes = function (x, y) {
-            
-            let colisio = false
-            if (escenari[y / 50][x / 50] == 0) {
-  
-                colisio = true;
-                return colisio;
-            }
+    this.margenes = function (x, y) {
+
+        let colisio = false
+        if (escenari[y / 50][x / 50] == 0) {
+
+            colisio = true;
             return colisio;
         }
+        return colisio;
+    }
 
 
-    
+
 }
 
 let prota = function (x, y) {
@@ -137,9 +168,9 @@ let prota = function (x, y) {
     this.y = y;
     this.clau = false;
 
-    this.matar = function(x,y){
+    this.matar = function (x, y) {
         let xavitieso = false;
-        if(this.x == x && this.y == y){
+        if (this.x == x && this.y == y) {
             xavitieso = true;
         }
         return xavitieso
@@ -167,6 +198,7 @@ let prota = function (x, y) {
         if (escenari[this.y / 50][this.x / 50] == 1) {
             if (this.clau) {
                 alert("ENHORABUENA HAS ESCAPADO")
+                escenari = escenari2
             } else {
                 alert("BUSCA LA LLAVE PORFI")
             }
@@ -220,6 +252,9 @@ let enemic3 = new villano(1500, 600, 96);
 function principal() {
     borrarPantalla();
     dibuixaEscenari();
+    for( let i=0;i<vidas;i++){
+         ctx.drawImage(corazon, i*50,0,50,50)
+    };
     xavi.dibuixa();
     enemic.dibuixa();
     enemic.moviment();
